@@ -107,5 +107,12 @@ p [*'bad'...'bah']
 
 # 繰り返し処理の応用
 numbers = []
+# 1から10まで　2つ　飛ばしで繰り返しです処理を行う
 (1..10).step(2) {|n| numbers << n }
 p numbers
+
+# 4.6 rjustメソッド
+p '0'.rjust(5)
+p '0'.rjust(5,'0')
+p '0'.rjust(5, '_')
+p 0.to_s(16).rjsut(2, '0')
