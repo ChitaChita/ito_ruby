@@ -19,3 +19,49 @@ p a.last(2)
 # firstメソッド  1  1 2
 p a.first 
 p a.first(2)
+
+# 要素の置き換え -10 2 3 4 5
+a[-3] = -10
+p a
+# 二つ目から３要素を置き換える　1 100 5
+a = [1, 2, 3, 4, 5]
+a[1, 3] = 100
+p a
+
+# push　メソッド  1   1 2 3
+a =[]
+p a.push(1)
+p a.push(2, 3)
+
+# delete メソッド  2 [1,3,1,3]  存在しないとnil [1,3,1,3]
+a = [1, 2, 3, 1, 2, 3]
+p a.delete(2)
+p a
+p a.delete(5)
+p a
+
+# concat 破壊的 [1,2,3]
+a = [1]
+b = [2, 3]
+p a.concat(b)
+# 非破壊的
+a = [1]
+b = [2, 3]
+p a + b
+
+# 重複しない和集合  [1,2,3,4,5]
+a = [1, 2, 3]
+b = [3, 4, 5]
+p a | b
+# 差集合 [1, 2]
+p a - b 
+# 積集合 [3]
+p a & b
+
+# set　クラス
+require 'set'
+ a = Set.new([1, 2, 3])
+ b = Set.new([3, 4, 5])
+p a | b
+p a - b 
+p a & b
