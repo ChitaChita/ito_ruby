@@ -65,3 +65,73 @@ require 'set'
 p a | b
 p a - b 
 p a & b
+
+e, f = 100, 200, 300
+p e 
+p f 
+
+e, *f = 100, 200, 300
+p e 
+p f 
+
+# 一つの配列を要素として追加する  [1, [2, 3]]
+a = [1]
+b=[2, 3]
+p a.push(b)
+
+# 一つの配列を複数の引数として追加する [1, 2, 3]
+# *を使うと展開されるイメージ
+a = [1]
+b=[2, 3]
+p a.push(*b)
+
+# 左辺 == 右辺　で等しいかチェック　　true  false
+p [1, 2] == [1, 2]
+p [1, 2, 3] == [1, 2]
+
+# 文字列の配列　%記法 ['apple', 'melon', 'orange']
+p ['apple', 'melon', 'orange']
+p %w!apple melon orange!
+p %w(apple melon orange)
+
+# スペース　改行、タブ文字　
+p %w(big\) apple small\ melon orange)
+
+prefix = 'This is'
+p %W(#{prefix}\ an\ apple small\nmelon, orange)
+
+# 文字列を配列に変換する　分解のchars 区切り文字で分割するsplit
+p 'Ruby'.chars 
+p 'a,b,c,d'.split(',')
+
+# Array.new(要素数, 初期値)　又は　Array.new(要素数) {初期値をブロックによる指定}
+a = Array.new(5, 0)
+p a 
+a = Array.new(10) { |n| n % 3 + 1 }
+p a 
+
+# 配列に初期値を設定する場合の注意点
+a = Array.new(5, 'exam')
+p a
+str = a[0]
+p str
+str.upcase!
+p a 
+
+a = Array.new(5) { 'exam' }
+p a
+str = a[0]
+p str
+str.upcase!
+p a 
+
+# 添え字付きの繰り返し処理
+fruits = ['apple', 'orange', 'melon']
+fruits.each_with_index {|fruits, i| puts "#{i}: #{fruits}" }
+
+# with_index メソッドを使った繰り返し処理
+fruits = ['apple', 'orange', 'melon']
+p fruits.map.with_index {|fruit, i| "#{i}: #{fruit}" }
+
+fruits = ['apple', 'orange', 'melon']
+p fruits.delete_if.with_index {|fruit, i| fruit.include?('a') && i.odd? }
