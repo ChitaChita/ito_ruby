@@ -62,3 +62,38 @@ while true
   puts n
   break if n == 5
 end
+
+# Kernel モジュールの throw メソッドと catch メソッド　（例外処理ではない）
+fruits = ['apple', 'orange', 'melon']
+numbers = [1, 2, 3]
+catch :done do
+  fruits.shuffle.each do |fruit|
+    numbers.shuffle.each do |n|
+      puts "#{fruit}, #{n}"
+      if fruit =='orange' && n == 3
+        # catch と一致しないタグを throw するとエラーになるので注意
+        throw :done
+      end
+    end
+  end
+end
+
+# next 中断して次の繰り返しにすすむ
+numbers = [1, 2, 3, 4, 5]
+numbers.each do |n|
+  next if n.even?
+  puts n
+end
+
+# redo その回の最初に戻り繰り返し処理をする
+foods = ['ピーマン', 'トマト', 'セロリ']
+count = 0
+foods.each do |food|
+  print "#{food}は好きですか？ =>"
+  answer = 'いいえ'
+  puts answer
+  count += 1
+  # やり直しは2回までにする
+  redo if answer != 'はい' && count < 2
+  count = 0
+end
